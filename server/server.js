@@ -8,7 +8,10 @@ const cors = require("cors");
 mongoose.connect("mongodb+srv://krrish:test@cluster0.y77lq.mongodb.net/employee").then(()=>{
     console.log("connected to db")
 })
-app.use(cors());  
+app.use(cors({
+    origin: "http://localhost:3000", 
+    credentials: true, 
+})); 
 app.use(express.json());
 app.use("/employee", router);
 
